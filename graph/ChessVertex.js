@@ -10,6 +10,14 @@ module.exports = class ChessVertex extends Node {
     this.#col = col;
   }
 
+  get row() {
+    return this.#row;
+  }
+
+  get col() {
+    return this.#col;
+  }
+
   toString() {
     return `[${this.#row}, ${this.#col}] ${super.toString()}`;
   }
