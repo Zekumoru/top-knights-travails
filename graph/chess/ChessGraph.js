@@ -1,4 +1,4 @@
-const ChessVertex = require('./ChessVertex');
+const Vertex = require('./Vertex');
 
 module.exports = class ChessGraph {
   static #SIZE = 8;
@@ -38,7 +38,7 @@ module.exports = class ChessGraph {
       const row = [];
 
       for (let j = 0; j < ChessGraph.#SIZE; j++) {
-        const col = new ChessVertex(i, j);
+        const col = new Vertex(i, j);
         col.value = `(${j}, ${i})`;
         row.push(col);
       }

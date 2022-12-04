@@ -1,4 +1,4 @@
-const Node = require('./Node');
+const Node = require('../Node');
 
 module.exports = class ChessVertex extends Node {
   #row;
@@ -19,6 +19,6 @@ module.exports = class ChessVertex extends Node {
   }
 
   toString() {
-    return `[${this.#row}, ${this.#col}] ${super.toString()}`;
+    return `[${this.#row}][${this.#col}] ${super.toString()}`;
   }
 };

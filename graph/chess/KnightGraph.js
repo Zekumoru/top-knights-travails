@@ -3,7 +3,7 @@ const ChessGraph = require('./ChessGraph');
 const isOdd = (n) => (n % 2) !== 0;
 const isEven = (n) => (n % 2) === 0;
 
-module.exports = class ChessKnightGraph extends ChessGraph {
+module.exports = class KnightGraph extends ChessGraph {
   constructor() {
     super();
     this.#connectNeighbors();

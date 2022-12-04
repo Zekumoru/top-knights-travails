@@ -1,4 +1,4 @@
-const KnightGraph = require('./graph/ChessKnightGraph');
+const KnightGraph = require('./graph/chess/KnightGraph');
 
 console.clear();
 
