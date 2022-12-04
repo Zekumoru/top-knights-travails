@@ -1,4 +1,4 @@
-const Vertex = require('./Vertex');
+const Vertex = require('./ChessVertex');
 
 module.exports = class ChessGraph {
   static #SIZE = 8;
