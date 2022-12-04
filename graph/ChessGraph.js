@@ -2,11 +2,16 @@ const ChessVertex = require('./ChessVertex');
 
 module.exports = class ChessGraph {
   static #SIZE = 8;
+
   #vertices;
 
   constructor() {
     this.#vertices = [];
     this.#createVertices();
+  }
+
+  static get SIZE() {
+    return ChessGraph.#SIZE;
   }
 
   get vertices() {
@@ -32,6 +37,7 @@ module.exports = class ChessGraph {
 
       for (let j = 0; j < ChessGraph.#SIZE; j++) {
         const col = new ChessVertex(i, j);
+        col.value = `(${i}, ${j})`;
         row.push(col);
       }
 
