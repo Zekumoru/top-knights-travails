@@ -4,7 +4,7 @@
   "description": "The eighth project of the JavaScript course from The Odin Project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
     "prepare": "husky install"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "eslint-plugin-import": "^2.26.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
+    "nodemon": "^2.0.20",
     "prettier": "2.8.0"
   },
   "lint-staged": {
