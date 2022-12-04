@@ -9,4 +9,8 @@ module.exports = class ChessVertex extends Node {
     this.#row = row;
     this.#col = col;
   }
+
+  toString() {
+    return `[${this.#row}, ${this.#col}] ${super.toString()}`;
+  }
 };
