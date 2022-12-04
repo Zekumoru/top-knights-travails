@@ -1,3 +1,5 @@
+const LinkedList = require('@zekumoru-dev/linked-list');
+const Queue = require('@zekumoru-dev/queue/queue/Queue');
 const Vertex = require('./ChessVertex');
 
 module.exports = class ChessGraph {
@@ -45,6 +47,33 @@ module.exports = class ChessGraph {
 
       this.#vertices.push(row);
     }
+  }
+
+  findPath([startRow, startCol], [endRow, endCol]) {
+    startRow = this.#vertices[startRow];
+    endRow = this.#vertices[endRow];
+    if (startRow == null || endRow == null) return [];
+
+    const start = startRow[startCol];
+    const end = endRow[endCol];
+    if (start == null || end == null) return [];
+
+    return this.#findPath(start, end).toArray();
+  }
+
+  #findPath(node, target, queue = new Queue(), traversed = []) {
+    if (node == null) return new LinkedList();
+    if (node === target) return new LinkedList(node);
+
+    traversed.push(node);
+    node.neighbors.forEach((neighbor) => {
+      if (traversed.includes(neighbor)) return;
+      queue.enqueue(neighbor);
+    });
+
+    const list = this.#findPath(queue.dequeue(), target, queue, traversed);
+    if (list.size > 0 && node.hasNeighbor(list.head.value)) list.prepend(node);
+    return list;
   }
 
   toString() {
