@@ -7,6 +7,10 @@ module.exports = class Node {
     this.#neighbors = [];
   }
 
+  get neighbors() {
+    return this.#neighbors;
+  }
+
   addNeighbor(node) {
     if (node === this) return;
     if (this.#neighbors.includes(node)) return;
