@@ -1,4 +1,4 @@
-const Node = require('./Node');
+const ChessVertex = require('./ChessVertex');
 
 module.exports = class ChessGraph {
   #vertices;
@@ -17,7 +17,7 @@ module.exports = class ChessGraph {
       const row = [];
 
       for (let j = 0; j < 8; j++) {
-        const col = new Node();
+        const col = new ChessVertex(i, j);
         row.push(col);
       }
 
