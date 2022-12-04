@@ -21,6 +21,7 @@
     "consistent-return": "off",
     "max-len": "off",
     "no-continue": "off",
+    "no-console": "off",
     "brace-style": ["off", "stroustrup"]
   }
 }
