@@ -8,7 +8,7 @@ module.exports = class Node {
   }
 
   get neighbors() {
-    return this.#neighbors;
+    return Object.freeze(this.#neighbors);
   }
 
   addNeighbor(node) {
@@ -25,6 +25,10 @@ module.exports = class Node {
 
     this.#neighbors.splice(this.#neighbors.findIndex((neighbor) => neighbor === node), 1);
     node.removeNeighbor(this);
+  }
+
+  hasNeighbor(node) {
+    return this.#neighbors.includes(node);
   }
 
   toString() {
