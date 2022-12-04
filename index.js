@@ -1,11 +1,6 @@
-const Node = require('./graph/Node');
+const ChessGraph = require('./graph/ChessGraph');
 
 console.clear();
 
-const node = new Node(1);
-const neighbor = new Node(2);
-node.addNeighbor(neighbor);
-neighbor.removeNeighbor(node);
-
-console.log(node.toString());
-console.log(neighbor.toString());
+const graph = new ChessGraph();
+console.log(graph.vertices);
