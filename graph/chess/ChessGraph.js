@@ -12,10 +12,6 @@ module.exports = class ChessGraph {
     this.#createVertices();
   }
 
-  static get SIZE() {
-    return ChessGraph.#SIZE;
-  }
-
   get vertices() {
     return Object.freeze(this.#vertices);
   }
