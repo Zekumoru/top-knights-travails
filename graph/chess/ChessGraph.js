@@ -45,7 +45,7 @@ module.exports = class ChessGraph {
     }
   }
 
-  findPath([startRow, startCol], [endRow, endCol]) {
+  findPath([startRow, startCol], [endRow, endCol], fns) {
     startRow = this.#vertices[startRow];
     endRow = this.#vertices[endRow];
     if (startRow == null || endRow == null) return [];
@@ -54,21 +54,29 @@ module.exports = class ChessGraph {
     const end = endRow[endCol];
     if (start == null || end == null) return [];
 
-    return this.#findPath(start, end).toArray();
+    return this.#findPath(start, end, fns).toArray();
   }
 
-  #findPath(node, target, queue = new Queue(), traversed = []) {
+  #findPath(node, target, fns, queue = new Queue(), traversed = []) {
     if (node == null) return new LinkedList();
-    if (node === target) return new LinkedList(node);
 
     traversed.push(node);
+    if (typeof fns?.onTraversal === 'function') fns.onTraversal(node);
+    if (node === target) return new LinkedList(node);
+
     node.neighbors.forEach((neighbor) => {
       if (traversed.includes(neighbor)) return;
+
       queue.enqueue(neighbor);
+      if (typeof fns?.onQueued === 'function') fns.onQueued(neighbor, node);
     });
 
-    const list = this.#findPath(queue.dequeue(), target, queue, traversed);
+    const dequeued = queue.dequeue();
+    if (typeof fns?.onDequeued === 'function') fns.onDequeued(dequeued, node);
+
+    const list = this.#findPath(dequeued, target, fns, queue, traversed);
     if (list.size > 0 && node.hasNeighbor(list.head.value)) list.prepend(node);
+
     return list;
   }
 
