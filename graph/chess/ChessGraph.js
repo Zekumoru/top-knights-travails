@@ -45,7 +45,7 @@ module.exports = class ChessGraph {
     }
   }
 
-  findPath([startRow, startCol], [endRow, endCol], fns) {
+  findPath([startRow, startCol], [endRow, endCol], fns = {}) {
     startRow = this.#vertices[startRow];
     endRow = this.#vertices[endRow];
     if (startRow == null || endRow == null) return [];
