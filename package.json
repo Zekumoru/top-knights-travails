@@ -1,23 +1,29 @@
 {
-  "name": "top-knights-travails",
+  "name": "@zekumoru-dev/knights-travails",
   "version": "1.0.0",
   "description": "The eighth project of the JavaScript course from The Odin Project.",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon",
-    "prepare": "husky install"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Zekumoru/top-knights-travails.git"
   },
-  "keywords": [],
+  "keywords": [
+    "knights-travails"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Zekumoru/top-knights-travails/issues"
   },
   "homepage": "https://github.com/Zekumoru/top-knights-travails#readme",
+  "dependencies": {
+    "@zekumoru-dev/linked-list": "^1.1.0",
+    "@zekumoru-dev/queue": "^1.0.0"
+  },
+  "scripts": {
+    "start": "nodemon",
+    "prepare": "husky install"
+  },
   "devDependencies": {
     "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -29,9 +35,5 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
-  },
-  "dependencies": {
-    "@zekumoru-dev/linked-list": "^1.1.0",
-    "@zekumoru-dev/queue": "^1.0.0"
   }
 }
