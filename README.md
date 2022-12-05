@@ -146,12 +146,22 @@ Returns `undefined`.
 #### findPath
 
 ```js
-findPath([startRow, startCol], [endRow, endCol])
+findPath([startRow, startCol], [endRow, endCol], fns = {})
 ```
 
 Returns an array of `ChessVertex` containing the shortest path from position `[startRow, startCol]` to position `[endRow, endCol]`.
 
 If any of the four parameters is invalid, returns an empty array.
+
+There are events that will be invoked within the `findPath` method and to listen to them, pass in the event functions in the `fns` object.
+
+```js
+fns = {
+  onTraversal(node) { /* ... */ },
+  onQueued(node, parentNode) { /* ... */ },
+  onDequeued(node, previousNode) { /* ... */ },
+}
+```
 
 #### toString
 
